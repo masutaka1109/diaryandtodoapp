@@ -1,0 +1,31 @@
+
+.icon{
+    border-radius:50%;
+    width:100px;
+    height:100px;
+    border:6px solid #ccc;
+}
+
+.intro-wrapper{
+   padding:20px;
+   display:flex;
+}
+
+.intro-area{
+    margin-left: 10px;
+}
+
+.user_name{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.button-area{
+    text-align:center;
+}
+
+@media screen and (max-width: 640px) {
+       .intro_wrapper{
+           background-color:red;
+       }
+}

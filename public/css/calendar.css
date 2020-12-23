@@ -1,0 +1,78 @@
+table {
+    width: 100%;
+}
+table th {
+    background: #eeeeee;
+}
+table th,
+table td {
+    border: 1px solid #cccccc;
+    text-align: center;
+    padding: 5px;
+}
+
+.calendar-title {
+    color: #545463;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 22px;
+    display: inline-block;
+}
+
+.title-area {
+    position: relative;
+    text-align: center;
+}
+
+.next-btn {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.prev-btn {
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.day-blank {
+    background-color: #efefef;
+}
+
+.sunday,
+.day-sun .day {
+    color: #ff2943;
+}
+
+.saturday,
+.day-sat .day {
+    color: #2b31d6;
+}
+
+.calendar {
+    margin: 0 auto;
+}
+
+.nottoday {
+    color: #707070;
+}
+
+.today {
+    background-color: #faf0e6;
+}
+
+td ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*--------------------
+        新着エリア
+---------------------*/
+
+h3 {
+    padding-left: 10px;
+    border-left: 10px solid lightgray;
+}

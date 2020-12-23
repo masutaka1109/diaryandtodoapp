@@ -1,0 +1,43 @@
+h3 {
+    font-size: 25px;
+    color: #545463;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: solid 10px lightgray;
+}
+
+.title {
+    font-size: 25px;
+    color: #545463;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    border-left: solid 10px lightgray;
+}
+
+.diary-info:nth-of-type(odd) {
+    background-color: #f5f5f5;
+}
+.diary-info {
+    margin-right: 20px;
+    padding: 12px 0 10px 15px;
+}
+.diary-title-area {
+    font-size: 20px;
+    font-weight: bold;
+}
+.diary-content-area {
+    padding: 3px 0 3px 10px;
+}
+.diary-link {
+    opacity: 50%;
+    margin-right: 10px;
+    text-align: right;
+}
+.author {
+    color: #545051;
+    font-size: 12px;
+    opacity: 70%;
+    vertical-align: middle;
+}
