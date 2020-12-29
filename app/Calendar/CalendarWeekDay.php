@@ -29,6 +29,9 @@ class CalendarWeekDay
     
     public function render()
     {
-        return '<span class="day">' . $this->carbon->format("j") . '</span><br>' .  link_to_route('write.get', 'write', ['date' => $this->carbon->format("Y-m-d")], []) . '<br>' .link_to_route('read.get', 'read', ['date' => $this->carbon->format("Y-m-d")], []); //0なしの日付を取得
+        return '<span class="day">' . $this->carbon->format("j") . '</span><br>'
+        .link_to_route('write.get', 'write', ['date' => $this->carbon->format("Y-m-d")], [])
+        . '<br>' .link_to_route('read.get', 'read', ['date' => $this->carbon->format("Y-m-d")], []);
+        //0なしの日付を取得
     }
 }

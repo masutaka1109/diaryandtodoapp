@@ -54,11 +54,21 @@
         <div class="favorite">
             @if(Auth::id() == $diary->user_id)
             <div class="edit-btn">
-                {{ link_to_route('diary.edit','日記を編集する',['id' => $diary->id],['class'=>'btn btn-primary edit']) }}
+                {{ link_to_route('diary.edit','編集する',['id' => $diary->id],['class'=>'btn btn-primary edit']) }}
+            </div>
+            @endif
+            @if(Auth::id() == $diary->user_id)
+            <div class="delete-btn">
+                <form action="/diary/{{$diary->id}}" method='post' name="deleteform">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <input type="submit" name="delete" value="削除する" onClick="delete_alert(event);return false;"
+                        class="btn btn-danger edit">
+                </form>
             </div>
             @endif
             @if(Auth::user()->is_favorite($diary->id))
-            {!! Form::open(['route' => ['favorites.unfavorite',$diary->id],'method'=>'delete']) !!}
+            {!! Form::open(['route' => ['favorites.unfavorite',$diary->id],'metod'=>'delete']) !!}
             {!! Form::submit('お気に入りから外す',['class'=>"btn btn-danger"]) !!}
             {!! Form::close() !!}
             @else
@@ -69,6 +79,7 @@
         </div>
         @endif
     </div>
+    <script src="{{asset('js/alert.js')}}"></script>
 </body>
 
 </html>

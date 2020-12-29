@@ -13,12 +13,13 @@
 
 Route::get('/', 'CalendarController@show');
 
+/*
 Route::resource('diaries', 'DiariesController', ['only' => ['store', 'destroy']]);
+*/
 
 Route::get('calendar', 'CalendarController@show')->name('calendar');
 
 Route::get('diary/{id}', 'DiariesController@show')->name('diary.show'); //日記の詳細ページ
-
 
 Route::get('read/{date}', 'DiariesController@index')->name('read.get'); //その日に投稿された日記を読むページ
 
@@ -34,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('write', 'DiariesController@store')->name('diary.store'); //その日の日記を投稿するためのページ
     Route::get('diary/{id}/edit', 'DiariesController@edit')->name('diary.edit'); //日記の編集ページ
     Route::put('diary/{id}', 'DiariesController@update')->name('diary.update'); //日記を編集するアクション
+    Route::delete('diary/{id}', 'DiariesController@destroy')->name('diary.destroy'); //日記を削除するアクション
 
     Route::group(['prefix' => 'diaries/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');

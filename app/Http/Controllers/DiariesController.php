@@ -73,6 +73,14 @@ class DiariesController extends Controller
             'id' => $id,
         ]));
     }
+
+    public function destroy($id)
+    {
+        $diary = Diary::findOrFail($id);
+        $diary->delete();
+
+        return redirect('/');
+    }
     
     public function users_diaries($id)
     {
