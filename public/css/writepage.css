@@ -1,28 +1,31 @@
-
-.title{
-    font-size:25px;
-    color:#545463;
-    margin:10px 0 0 10px;
+.title {
+    font-size: 25px;
+    color: #545463;
+    margin: 10px 0 0 10px;
 }
-.title-label{
-    color:#545463;
-    margin:10px 0 0 10px;
+.title-label {
+    color: #545463;
+    margin: 10px 0 0 10px;
 }
-.title-form{
+.title-form {
     margin: 0 10px 5px 10px;
-    width:98%;
+    width: 98%;
 }
-.content-label{
-    color:#545463;
-    margin:10px 0 0 10px;
+.content-label {
+    color: #545463;
+    margin: 10px 0 0 10px;
 }
-.content-form{
-    margin:0 10px 10px 10px;
-    width:98%;
+.content-form {
+    margin: 0 10px 10px 10px;
+    width: 98%;
 }
-.btn-area{
+.btn-area {
     text-align: center;
 }
-.toukou{
-    width:100px;
+.toukou {
+    width: 100px;
+}
+
+.is_todo_checkbox {
+    margin-left: 10px;
 }

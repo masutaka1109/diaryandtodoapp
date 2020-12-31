@@ -7,6 +7,7 @@ class CalendarWeekDay
 {
     protected $carbon;
     
+    //日付を渡してオブジェクトを生成
     public function __construct($date)
     {
         $this->carbon = new Carbon($date);

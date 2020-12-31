@@ -56,6 +56,11 @@
             <div class="edit-btn">
                 {{ link_to_route('diary.edit','編集する',['id' => $diary->id],['class'=>'btn btn-primary edit']) }}
             </div>
+            @if($diary->is_todo and !$diary->is_completed)
+            {!! Form::open(['route' => ['diary.completed',$diary->id]]) !!}
+            {!! Form::submit('達成にする',['class'=>"btn btn-primary edit"]) !!}
+            {!! Form::close() !!}
+            @endif
             @endif
             @if(Auth::id() == $diary->user_id)
             <div class="delete-btn">

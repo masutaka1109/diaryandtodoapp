@@ -1,0 +1,33 @@
+.mycalendar {
+    margin-top: 10px;
+    text-align: center;
+}
+
+table td {
+    width: 14%;
+}
+
+.diary-title {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.not-completed-todo {
+    background-color: lightpink;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.completed-todo {
+    background-color: lightgreen;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.diary-title a {
+    display: block;
+}

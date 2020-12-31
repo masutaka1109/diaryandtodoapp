@@ -25,6 +25,9 @@
             {!! link_to_route('users.show','マイページ',['user'=>Auth::id()],['class' => 'nav-link']); !!}
         </li>
         <li class="nav-item">
+            {!! link_to_route('mycalendar.show','マイカレンダー',['user'=>Auth::id()],['class' => 'nav-link']); !!}
+        </li>
+        <li class="nav-item">
             {!! link_to_route('logout.get','ログアウト',[],['class' => 'nav-link']); !!}
         </li>
         @else

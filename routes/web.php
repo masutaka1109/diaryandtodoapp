@@ -19,6 +19,8 @@ Route::resource('diaries', 'DiariesController', ['only' => ['store', 'destroy']]
 
 Route::get('calendar', 'CalendarController@show')->name('calendar');
 
+Route::get('mycalendar', 'CalendarController@showMyCalendar')->name('mycalendar.show'); //ヘッダーのマイカレンダー
+
 Route::get('diary/{id}', 'DiariesController@show')->name('diary.show'); //日記の詳細ページ
 
 Route::get('read/{date}', 'DiariesController@index')->name('read.get'); //その日に投稿された日記を読むページ
@@ -40,6 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'diaries/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');
         Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
+        Route::post('completed', 'DiariesController@completed')->name('diary.completed');
     });
 });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Calendar\CalendarView;
+use App\Calendar\MyCalendarView;
 use App\Diary;
 
 class CalendarController extends Controller
@@ -30,5 +31,26 @@ class CalendarController extends Controller
                 "diaries" => $diaries,
                 "calendar" => $calendar
             ]);
+    }
+
+    public function showMyCalendar(Request $request)
+    {
+        $date = $request->input("date");
+
+        if ($date && preg_match("/^[0-9]{4}-[0-9]{2}$/", $date)) {
+            $date = strtotime($date . "-02");
+        } else {
+            $date = null;
+        }
+
+        if (!$date) {
+            $date = time();
+        }
+
+        $calendar = new MyCalendarView($date);
+
+        return view('users/mycalendar', [
+            "calendar" => $calendar,
+        ]);
     }
 }

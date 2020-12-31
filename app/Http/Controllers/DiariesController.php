@@ -32,12 +32,21 @@ class DiariesController extends Controller
                 'title' => 'required',
                 'content' => 'required',
             ]);
+        
+        //laravelではbooleanが1か0で処理され、trueやfalseを入れられないので変更する。
+        if ($request->is_todo) {
+            $request->is_todo = 1;
+        } else {
+            $request->is_todo = 0;
+        }
             
+        //新しい変数を作るときは$fillableに追加するのを忘れないように
         $request->user()->diaries()->create([
                 'title' => $request->title,
                 'content' => $request->content,
                 'date' => $request->date,
                 'author' => $request->name,
+                'is_todo' => $request->is_todo,
             ]);
         
         return redirect('calendar'); //前のURLへリダイレクト
@@ -91,5 +100,15 @@ class DiariesController extends Controller
                 'user' => $user,
                 'diaries' => $diaries,
             ]);
+    }
+
+    public function completed($id)
+    {
+        $diary = Diary::findOrFail($id);
+
+        $diary->is_completed = 1;
+        $diary->save();
+        
+        return back();
     }
 }

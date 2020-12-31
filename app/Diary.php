@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Diary extends Model
 {
     protected $fillable = [
-        'title','content','date','author'
+        'title','content','date','author','is_todo'
         ]; //指定したカラムに対してcreateを使って値をまとめて入れられるようにする
     
     public function user()
@@ -17,6 +17,6 @@ class Diary extends Model
     
     public function favorite_users()
     {
-        return $this->belongsToMany(User::class,'favorites','diary_id','user_id');
+        return $this->belongsToMany(User::class, 'favorites', 'diary_id', 'user_id');
     }
 }
