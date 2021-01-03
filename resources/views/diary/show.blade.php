@@ -64,9 +64,9 @@
             {{ $diary->created_at }}
         </div>
         @if(Auth::check())
-        <div class="favorite">
+        <div class="favorite d-flex justify-content-center">
             @if(Auth::id() == $diary->user_id)
-            <div class="edit-btn">
+            <div class="edit-btn mr-3">
                 {{ link_to_route('diary.edit','編集する',['id' => $diary->id],['class'=>'btn btn-primary edit']) }}
             </div>
             @if($diary->is_todo and !$diary->is_completed)
@@ -76,7 +76,7 @@
             @endif
             @endif
             @if(Auth::id() == $diary->user_id)
-            <div class="delete-btn">
+            <div class="delete-btn mr-3">
                 <form action="/diary/{{$diary->id}}" method='post' name="deleteform">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}

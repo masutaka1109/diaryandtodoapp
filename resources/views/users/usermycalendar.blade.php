@@ -8,7 +8,7 @@
     <div class="">
         <div class="mycalendar">
             <h2>{{$user->name}}さんのカレンダー</h2>
-            <div class="title-area">
+            <div class="title-area mb-3">
                 <a class="btn btn-outline-secondary prev-btn"
                     href="{{ url('users/' . $user->id . '/mycalendar?date=' . $calendar->getPreviousMonth()) }}">前の月</a>
                 <div class="calendar-title">{{ $calendar->getTitle() }}</div>

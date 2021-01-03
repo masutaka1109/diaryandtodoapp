@@ -9,12 +9,13 @@
     </head>
 
     <body>
+        @include('commons.navbar')  
         <div class="login-zone">
             <div class="login-form">
                 <div class="login-form-content">
                     {!! Form::open(['route' => 'signup.post']) !!}
                         <div class="title">
-                            <h3>新規登録</h3>
+                            <h2>新規登録</h2>
                         </div>
                         <div class="form-group">
                             {!! Form::label('name','ユーザー名',['class' => 'text-secondary']) !!}
@@ -42,7 +43,7 @@
                 </div>
             </div>
             {{-- ユーザ登録ページへのリンク --}}
-            <div class="signup">
+            <div class="signup mt-3">
                 {!! link_to_route('login','ログイン',[],['class' => 'signup-url']) !!}
             </div>
         </div>

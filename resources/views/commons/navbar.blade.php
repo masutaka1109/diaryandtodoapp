@@ -13,8 +13,10 @@
     }
 </style>
 
-<nav class="navbar navbar-expand navbar-light bg-light">
+<nav class="navbar navbar-expand navbar-light bg-light mb-4">
+    <h1>
     {!! link_to_route('calendar','Diary',[],['class' => 'logo']) !!}
+    </h1>
     <div class="navbar-nav mr-auto"></div>
     <ul class="nav navbar-nav">
         <li class="nav-item">

@@ -12,12 +12,13 @@
         @if(Auth::check())
             <?php return redirect('calendar'); ?>
         @else
+            @include('commons.navbar')
             <div class="login-zone">
                 <div class="login-form">
                     <div class="login-form-content">
                         {!! Form::open(['route' => 'login.post']) !!}
                             <div class="title">
-                                <h3>ログイン</h3>
+                                <h2>ログイン</h2>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('email','メールアドレス',['class' => 'text-secondary']) !!}
@@ -32,7 +33,7 @@
                     </div>
                 </div>
                 {{-- ユーザ登録ページへのリンク --}}
-                <div class="signup">
+                <div class="signup mt-3">
                     {!! link_to_route('signup.get','新規登録',[],['class' => 'signup-url']) !!}
                 </div>
             </div>
