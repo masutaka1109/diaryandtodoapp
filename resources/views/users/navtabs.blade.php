@@ -17,4 +17,10 @@
             お気に入り
         </a>
     </li>
+    <li class="nav-item">
+        <a href="{{ route('usermycalendar.show',['user' => $user->id]) }}"
+            class="nav-link {{ Request::routeIs('usermycalendar.show') ? 'active' : '' }}">
+            マイカレンダー
+        </a>
+    </li>
 </ul>

@@ -39,6 +39,12 @@ class DiariesController extends Controller
         } else {
             $request->is_todo = 0;
         }
+
+        if ($request->is_private) {
+            $request->is_private = 1;
+        } else {
+            $request->is_private = 0;
+        }
             
         //新しい変数を作るときは$fillableに追加するのを忘れないように
         $request->user()->diaries()->create([
@@ -47,6 +53,7 @@ class DiariesController extends Controller
                 'date' => $request->date,
                 'author' => $request->name,
                 'is_todo' => $request->is_todo,
+                'is_private' => $request->is_private
             ]);
         
         return redirect('calendar'); //前のURLへリダイレクト
@@ -76,6 +83,15 @@ class DiariesController extends Controller
         
         $diary->title = $request->title;
         $diary->content = $request->content;
+
+        if ($request->is_private) {
+            $request->is_private = 1;
+        } else {
+            $request->is_private = 0;
+        }
+
+        $diary->is_private = $request->is_private;
+        
         $diary->save();
         
         return redirect(route('diary.show', [
@@ -108,7 +124,7 @@ class DiariesController extends Controller
 
         $diary->is_completed = 1;
         $diary->save();
-        
+
         return back();
     }
 }

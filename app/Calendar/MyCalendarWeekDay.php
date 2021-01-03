@@ -27,6 +27,10 @@ class MyCalendarWeekDay extends CalendarWeekDay
         $diaries = $this->getDiary($this->carbon->format('Y-m-d'));
 
         foreach ($diaries as $diary) {
+            if ($diary->is_private and \Auth::id() != $diary->user_id) {
+                continue;
+            }
+
             if (!($diary->is_todo)) {
                 $html[] = '<div class="diary-title">';
             } else {

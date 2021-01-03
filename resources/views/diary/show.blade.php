@@ -36,14 +36,27 @@
             font-size: 17px;
             opacity: 0.6;
         }
+
+        .private-msg {
+            margin-top: 5px;
+            margin-left: 5px;
+            font-size: 20px;
+            color: darkgray;
+        }
     </style>
 </head>
 
 <body>
     @include('commons.navbar')
+    @if($diary->is_private and \Auth::id() != $diary->user_id)
+    <p class="private-msg">この日記は非公開になっています。</p>
+    @else
     <div class="diary-area">
         <div class="title-area">
             {{ $diary->title }}
+            @if($diary->is_private)
+            <span class="private-msg">非公開になっています。</span>
+            @endif
         </div>
         <div class="content-area" style="white-space:pre-wrap;">{{ $diary->content }}</div>
         <div class="info-area">
@@ -84,6 +97,7 @@
         </div>
         @endif
     </div>
+    @endif
     <script src="{{asset('js/alert.js')}}"></script>
 </body>
 

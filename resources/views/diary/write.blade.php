@@ -23,6 +23,10 @@
             {!! Form::checkbox('is_todo','1',false,['class' => 'is_todo_checkbox','id' => 'check_box1']) !!}
             {{Form::label('check_box1','ToDoとして登録')}}
         </div>
+        <div class="form-group">
+            {!! Form::checkbox('is_private','1',false,['class' => 'is_private_checkbox','id' => 'check_box2']) !!}
+            {{Form::label('check_box2','他のユーザーに非公開にする')}}
+        </div>
         <div class="btn-area">
             {!! Form::submit('投稿', ['class' => 'btn btn-primary toukou']) !!}
         </div>

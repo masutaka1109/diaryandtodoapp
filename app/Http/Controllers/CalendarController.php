@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Calendar\CalendarView;
 use App\Calendar\MyCalendarView;
 use App\Diary;
+use App\User;
 
 class CalendarController extends Controller
 {
@@ -49,7 +50,19 @@ class CalendarController extends Controller
 
         $calendar = new MyCalendarView($date);
 
-        return view('users/mycalendar', [
+        return view('users.mycalendar', [
+            "calendar" => $calendar,
+        ]);
+    }
+
+    public function showUserMyCalendar($id)
+    {
+        $user = User::findOrFail($id);
+
+        $calendar = new MyCalendarView(time());
+
+        return view('users.usermycalendar', [
+            "user" => $user,
             "calendar" => $calendar,
         ]);
     }

@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['prefix' => 'users/{user}'], function () {
     Route::get('diaries', 'DiariesController@users_diaries')->name('users.diaries');
     Route::get('favorites', 'UsersController@favorites')->name('users.favorites');
+    Route::get('mycalendar', 'CalendarController@showUserMyCalendar')->name('usermycalendar.show'); //ユーザーページのマイカレンダー
 });
 
 Route::resource('users', 'UsersController', ['only' => ['index', 'show','update']]);

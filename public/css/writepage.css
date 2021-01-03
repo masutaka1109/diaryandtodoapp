@@ -26,6 +26,7 @@
     width: 100px;
 }
 
-.is_todo_checkbox {
+.is_todo_checkbox,
+.is_private_checkbox {
     margin-left: 10px;
 }
