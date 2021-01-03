@@ -5,6 +5,13 @@ use Carbon\Carbon;
 
 class MyCalendarWeek extends CalendarWeek
 {
+    public function __construct($date, $user, $index=0)
+    {
+        $this->carbon = new Carbon($date);
+        $this->user = $user;
+        $this->index = $index;
+    }
+
     public function getDays()
     {
         $days = [];
@@ -16,13 +23,13 @@ class MyCalendarWeek extends CalendarWeek
         
         while ($tmpDay->lte($lastDay)) {
             if ($tmpDay->month != $this->carbon->month) {
-                $day = new CalendarWeekBlankDay($tmpDay->copy());
+                $day = new CalendarWeekBlankDay($tmpDay->copy(), $this->user);
                 $days[] = $day;
                 $tmpDay->addDay(1);
                 continue;
             }
             
-            $day = new MyCalendarWeekDay($tmpDay->copy());
+            $day = new MyCalendarWeekDay($tmpDay->copy(), $this->user);
             $days[] = $day;
             $tmpDay->addDay(1);
         }

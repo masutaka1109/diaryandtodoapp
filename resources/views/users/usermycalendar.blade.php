@@ -10,10 +10,10 @@
             <h2>{{$user->name}}さんのカレンダー</h2>
             <div class="title-area">
                 <a class="btn btn-outline-secondary prev-btn"
-                    href="{{ url('mycalendar?date=' . $calendar->getPreviousMonth()) }}">前の月</a>
+                    href="{{ url('users/' . $user->id . '/mycalendar?date=' . $calendar->getPreviousMonth()) }}">前の月</a>
                 <div class="calendar-title">{{ $calendar->getTitle() }}</div>
                 <a class="btn btn-outline-secondary next-btn"
-                    href="{{ url('mycalendar?date=' . $calendar->getNextMonth()) }}">次の月</a>
+                    href="{{ url('users/' . $user->id . '/mycalendar?date=' . $calendar->getNextMonth()) }}">次の月</a>
             </div>
             <div class="">
                 {!! $calendar->render() !!}

@@ -48,18 +48,30 @@ class CalendarController extends Controller
             $date = time();
         }
 
-        $calendar = new MyCalendarView($date);
+        $calendar = new MyCalendarView($date, \Auth::user());
 
         return view('users.mycalendar', [
             "calendar" => $calendar,
         ]);
     }
 
-    public function showUserMyCalendar($id)
+    public function showUserMyCalendar(Request $request, $id)
     {
+        $date = $request->input("date");
+
+        if ($date && preg_match("/^[0-9]{4}-[0-9]{2}$/", $date)) {
+            $date = strtotime($date . "-02");
+        } else {
+            $date = null;
+        }
+
+        if (!$date) {
+            $date = time();
+        }
+
         $user = User::findOrFail($id);
 
-        $calendar = new MyCalendarView(time());
+        $calendar = new MyCalendarView($date, $user);
 
         return view('users.usermycalendar', [
             "user" => $user,

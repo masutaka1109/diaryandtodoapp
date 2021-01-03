@@ -6,11 +6,20 @@ use App\Diary;
 
 class MyCalendarWeekDay extends CalendarWeekDay
 {
-    public function getDiary($date)
+    protected $user;
+    
+    //日付を渡してオブジェクトを生成
+    public function __construct($date, $user)
+    {
+        $this->carbon = new Carbon($date);
+        $this->user = $user;
+    }
+
+    public function getDiary($date, $user)
     {
         $query = Diary::query();
         $query->where('date', $date);
-        $query->where('user_id', \Auth::id());
+        $query->where('user_id', $user->id);
 
         $diaries = $query->get();
 
@@ -24,7 +33,7 @@ class MyCalendarWeekDay extends CalendarWeekDay
         $html[] = link_to_route('write.get', $this->carbon->format('j'), ['date' => $this->carbon->format('Y-m-d')], []);
         $html[] = '</span><br>';
 
-        $diaries = $this->getDiary($this->carbon->format('Y-m-d'));
+        $diaries = $this->getDiary($this->carbon->format('Y-m-d'), $this->user);
 
         foreach ($diaries as $diary) {
             if ($diary->is_private and \Auth::id() != $diary->user_id) {
